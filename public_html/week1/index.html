@@ -61,6 +61,64 @@ and open the template in the editor.
                   console.log("if n equals anything else");
             }
             
+            var type = "email";
+            switch (type){
+                case "email":
+                        console.log("Validate email");
+                    break;
+                    
+                case "fname":
+                        console.log("Validate fname");
+                    break;
+            }
+            
+            
+            /*
+             * For and While Loops
+             * 
+             * Operator Types
+             *   ==   equal, checks value
+             *   ===  absolute equal, checks value and type
+             *   !=   not equal, checks for not value
+             *   !==  absolute not equal, checks for not value and type
+             *   <    less than
+             *   <=   less than or equal to
+             *   >    greater than
+             *   >=   greater than or equal to
+             */
+            
+            
+            for (var i = 0; i < 100; i++) {
+                //console.log(i);
+            }
+            
+            var isDone = false;
+            while (!isDone) {
+                if (!isDone) {
+                    isDone = true;
+                }
+            }
+            
+            do {
+                isDone = true;
+            } while (!isDone)
+                
+            var valNum = 10;
+            console.log("this value is = " + valNum);
+            console.log( typeof( valNum) );
+            
+            valNum = 10 + 10;
+             console.log("this value is = " + valNum);
+             console.log( typeof( valNum) );
+             
+            valNum = 10 + "10";
+            console.log("this value is = " + valNum);
+             console.log( typeof( valNum) );
+             
+            valNum = 10 + "" + " hello";
+             console.log("this value is = " + valNum);
+             console.log( typeof( valNum) );
+            
         </script>
         
     </body>
