@@ -19,57 +19,113 @@ and open the template in the editor.
             
             var myString = "fifty four";
             var myString2 = "54";
+            var myString3 = "true";
             var myBool = false;
             var myBool2 = true;
             var myInt = 54;
             var myInt2 = 0;
             
+            
+            console.log("Comparisons");
+            console.log("");
+            console.log("String to string, value only");
             if (myString == myString2) {
                 console.log("These two have the same value.");
             } else {
                 console.log("The values are different.");
             }
             
+            console.log("");
+            console.log("String to string, value and type");
             if (myString === myString2) {
                 console.log("These two have the same value and type.");
             } else {
                 console.log("The values or types are different");
             }
             
+            console.log("");
+            console.log("Int to Int, value only");
             if (myInt == myInt2) {
                 console.log("These values are the same");
             } else {
                 console.log("The values are different");
             }
             
+            console.log("");
+            console.log("Int to int, value and type");
             if (myInt === myInt2) {
                 console.log("These values and types are the same");
             } else {
                 console.log("The values or types are different");
             }
             
+            console.log("");
+            console.log("Bool to bool, value only");
             if (myBool == myBool2) {
                 console.log("These values are the same");
             } else {
                 console.log("The values are different");
             }
             
+            console.log("");
+            console.log("Bool to bool, value and type");
             if (myBool === myBool2) {
                 console.log("These values and types are the same");
             } else {
                 console.log("The values or types are different");
             }
             
+            console.log("");
+            console.log("String to int, value only");
+            if (myString2 == myInt) {
+                console.log("The values are the same");
+            } else {
+                console.log("The values are not the same");
+            }
+            
+            console.log("");
+            console.log("String to int, value and type");
+            if (myString2 === myInt) {
+                console.log("The values AND types are the same");
+            } else {
+                console.log("The values OR types are not the same");
+            }
+            
+            console.log("");
+            console.log("Bool to int, value only");
+            if (myBool == myInt2) {
+                console.log("These have the same value");
+            } else {
+                console.log("The values are different");
+            }
+            
+            console.log("");
+            console.log("String to bool, value only");
+            if (myString3 == myBool2) {
+                console.log("The values are the same");
+            } else {
+                console.log("The values are not the same");
+            }
+            
+            console.log("");
+            console.log("String to bool, value and type");
+            if (myString3 === myBool2) {
+                console.log("The values and types are the same");
+            } else {
+                console.log("The values OR types are not the same");
+            }
             
             
             /*
              * Step Two - Loops
              */
+            console.log("");
             console.log("Loop 10 to 0");
             for (var i = 10; i > -1; i--) {
                 console.log(i);
             }
             
+            console.log("");
             console.log("Loop 0 to 10");
             for (var i = 0; i < 11; i++) {
                 console.log(i);
