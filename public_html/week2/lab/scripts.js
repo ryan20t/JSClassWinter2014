@@ -13,13 +13,21 @@ function submitForm(){
     var comments = document.getElementById("comments");
     var commentsSpan = document.getElementById("err_dob");
     
+    /*
+     * Validate name field to ensure that it is not blank.
+     */
+    
     if (name.value.length > 1) {
         nameSpan.innerHTML = "";
-        name.className = "";
+        name.className = "good";
         } else {
         nameSpan.innerHTML = "<strong>error: field is blank</strong>";
         name.className = "bad";
     }
+    
+    /*
+     * Validate email field to ensure proper format.
+     */
     
     if (email.value.length < 1) {
         emailSpan.innerHTML = "<strong>error: field is blank</strong>";
@@ -29,8 +37,12 @@ function submitForm(){
             emailSpan.innerHTML = "<strong>error: valid emails contain @ and at least 1 period</strong>";
         } else if (email.value.indexOf("@") > 1 && email.value.indexOf(".") > 1 && email.value.length > 1){
             emailSpan.innerHTML = "";
-            email.className = "";
+            email.className = "good";
         }
+        
+    /*
+     * Check to see if comments field is valid (not blank, and less than 150 characters).
+     */
     
     if (comments.value.length > 150) {
         commentsSpan.innerHTML = "<strong>comments must be less than 150 characters</strong>";
@@ -40,7 +52,7 @@ function submitForm(){
         comments.className = "bad";
     } else if (comments.value.length < 150 && comments.value.length > 1) {
         commentsSpan.innerHTML = "";
-        comments.className = "";
+        comments.className = "good";
     }
     
     
