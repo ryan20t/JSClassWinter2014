@@ -58,7 +58,7 @@ html, body {
                 color: red;
         }
         
-        input[type=text].bad {
+        input[type=text].bad, textarea.bad {
                 border: 2px solid red;
         }
         
@@ -70,3 +70,4 @@ html, body {
             width :90%;
             height: 100px;
         }
+        

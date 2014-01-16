@@ -5,3 +5,43 @@
  */
 
 
+function submitForm(){
+    var name = document.getElementById("name");
+    var nameSpan = document.getElementById("err_name");
+    var email = document.getElementById("email");
+    var emailSpan = document.getElementById("err_email");
+    var comments = document.getElementById("comments");
+    var commentsSpan = document.getElementById("err_dob");
+    
+    if (name.value.length > 1) {
+        nameSpan.innerHTML = "";
+        name.className = "";
+        } else {
+        nameSpan.innerHTML = "<strong>error: field is blank</strong>";
+        name.className = "bad";
+    }
+    
+    if (email.value.length < 1) {
+        emailSpan.innerHTML = "<strong>error: field is blank</strong>";
+        email.className = "bad";
+        } else if (email.value.indexOf("@") < 1 || email.value.indexOf(".") < 1) {
+            email.className = "bad";
+            emailSpan.innerHTML = "<strong>error: valid emails contain @ and at least 1 period</strong>";
+        } else if (email.value.indexOf("@") > 1 && email.value.indexOf(".") > 1 && email.value.length > 1){
+            emailSpan.innerHTML = "";
+            email.className = "";
+        }
+    
+    if (comments.value.length > 150) {
+        commentsSpan.innerHTML = "<strong>comments must be less than 150 characters</strong>";
+        comments.className = "bad";
+    } else if (comments.value.length < 1) {
+        commentsSpan.innerHTML = "<strong>comments must not be blank</strong>";
+        comments.className = "bad";
+    } else if (comments.value.length < 150 && comments.value.length > 1) {
+        commentsSpan.innerHTML = "";
+        comments.className = "";
+    }
+    
+    
+}
