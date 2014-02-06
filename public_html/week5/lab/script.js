@@ -8,37 +8,38 @@
 
 
 
-function noSpaceAlphaValidate( str ) {
+function noSpaceAlphaValidate( str ) {         //regex function to validate first name
         var alphaRegex = /^[a-zA-Z]+$/;
         return alphaRegex.test(str);			
 }
 
-function spaceAlphaValidate( str ) {
+function spaceAlphaValidate( str ) {           //regex function to validate last name
         var alphaRegex = /[a-zA-Z ]+/;
         return alphaRegex.test(str);			
 }
 
-function emailValidate( str ) {
+function emailValidate( str ) {                //regex function to validate email address
         var emailVal = /^[a-zA-Z]+@[a-zA-Z_]+?\.[a-zA-Z]{3}$/;
         return emailVal.test(str);
 }
 
 
-function strip_HTML(str) {
+function strip_HTML(str) {                     //regex function to remove HTML from comments
         var findHtml = /<(.|\n)*?>/gi;
         return str.replace(findHtml,"");
 }
 
 
-
+//submit button click functions, etc
 function submitForm() {
 
+        //collect variables
         var fname = document.getElementById('fname');
         var lname = document.getElementById('lname');
         var email = document.getElementById('email');
         var comments = document.getElementById('comments');
 
-
+        //first name processing
         if ( !fname.value.length ) {
                 console.log("Fname needs a length");
                 err_fname.innerHTML = "<strong>error: field is blank</strong>";
@@ -53,6 +54,7 @@ function submitForm() {
                 fname.className = "good";
         }
         
+        //last name processing
         if ( !lname.value.length ) {
                 console.log("Lname needs a length");
                 err_lname.innerHTML = "<strong>error: field is blank</strong>";
@@ -67,6 +69,7 @@ function submitForm() {
                 lname.className = "good";
         }
         
+        //email address processing
         if ( !email.value.length ) {
                 console.log("email needs a length");
                 err_email.innerHTML = "<strong>error: field is blank</strong>";
@@ -81,7 +84,7 @@ function submitForm() {
                 email.className = "good";
         }
         
-        
+        //comments field processing
         if (comments.value.length > 150) {
             commentsSpan.innerHTML = "<strong>comments must be less than 150 characters</strong>";
             comments.className = "bad";

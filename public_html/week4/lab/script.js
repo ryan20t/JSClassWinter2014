@@ -45,7 +45,6 @@ function collectMachineInfo(){
     machinedata["winWidth"] = window.innerWidth;
     machinedata["userAgent"] = window.navigator.userAgent;
     machinedata["docTitle"] = document.title;
-    console.log(machinedata);
     fullname.value = "";
     emailAddress.value = "";
 }
@@ -53,12 +52,28 @@ function collectMachineInfo(){
 //Event listener to collect machine info on load
 window.addEventListener('load', collectMachineInfo);
 
+var data = {
+                "mousex" : []
+        };
+
+//Function to listen for up to 100 mouse moves
+function onMouseMove(e){
+        data.mousex.push(e.clientX);
+        if ( data.mousex.length > 100 ) {
+            document.removeEventListener('mousemove', onMouseMove);
+            }
+        }
+        
+//Event listener to call onMouseMove function
+document.addEventListener('mousemove', onMouseMove);
 
 //RESULTS AND OUTPUT
 //Function to log results when results button is clicked
 function showResults() {
     console.clear();
     console.log(userdata);
+    console.log(machinedata);
+    console.log(data);
 }
 
 var results = document.getElementById('showResults');
