@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="time"></div>
+        
+        <h1 id="counter"></h1>
+        
+        <script type="text/javascript">
+            
+            
+            
+            
+            //time and date that updates every second
+            var timeDiv = document.getElementById('time');
+            
+            function updateTime(){
+                var time = new Date();
+                timeDiv.innerHTML = time;
+            }
+            
+            var timer = setInterval(updateTime, 1000);
+            
+            
+            
+            //countdown timer
+            /*
+            var h1 = document.getElementById('counter');
+            var count = 10;
+            
+            var counter = setTimeout(updateTime, 1000);
+            
+            function updateTime(){
+
+                h1.innerHTML = count;
+                count--;
+                
+                if ( count < 0 ){
+                    clearTimeout(counter);
+                } else{
+                    counter = setTimeout(updateTime, 1000);
+                }
+            }
+            */
+           
+           var colors = ['red', 'green', 'blue', 'black'];
+           var colorcount = 0;
+           var colortime = setTimeout(updateColor, 1000);
+           
+           function updateColor(){
+               time.style.color = colors[colorcount];
+               colorcount++;
+               
+               if ( colorcount <= 3){
+                   setTimeout(updateColor, 1000);
+               } else {
+                   clearTimeout(colortimer);
+               }
+               
+           }
+           
+           
+           
+           
+            
+        </script>
+        
+    </body>
+</html>
