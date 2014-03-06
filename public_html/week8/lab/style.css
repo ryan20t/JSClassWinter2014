@@ -1,0 +1,17 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 5, 2014, 7:36:22 PM
+    Author     : ryan
+*/
+
+#fadingDiv{
+    opacity: 0;
+}
+
+#canvas{
+    border: 1px solid black;
+}

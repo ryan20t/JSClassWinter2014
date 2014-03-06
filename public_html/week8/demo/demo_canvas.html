@@ -9,94 +9,80 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        
+        <style type="text/css">
+            canvas {
+                border: 1px solid black;
+            }
+            </style>
     </head>
     <body>
-        <div id="time"></div>
-        
-        
-        <h1 id="counter"></h1>
+        <canvas id="tutorial" width="750" height="150"></canvas>
         
         <script type="text/javascript">
             
-            /*
-             * 
-             *  setTimeout
-                    executes a function, once, after waiting a specified number of milliseconds
-                setInterval
-                    executes a function, over and over again, at specified time intervals
-                clearTimeout
-                    Used to stop the execution of setTimeout
-                clearInterval
-                    Used to stop the execution of setInterval
-                    These timers are part of the window object.
-
-             */
             
+            // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Drawing_shapes
             
-          /*
-            var timeDiv = document.getElementById('time');
+            var can = document.getElementById('tutorial');
+            var ctx = can.getContext('2d');
             
-            
-            function updateTime() {
-                  var time = new Date();
-                timeDiv.innerHTML = time;
+            var x = 0;
+                     
+            function movecanvas(){
+               
+               ctx.clearRect(0,0,can.width,can.height);
+               ctx.fillRect(x,25,50,50);
+                 var w = parseInt(can.width-100,10);
+                 if ( x < w) {
+                     x+=10;
+                 }
+                
             }
             
-            var timer = setInterval(updateTime, 1000);
-    
-    */
-            /***************************/
+            //setInterval(movecanvas, 50);
+            
+            console.log(can.width);
             
             
-           window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
             
-    
-    
-            var h1 = document.getElementById('counter');
-            var count = 1000;
+            var img = new Image();
             
-            var time = new Date();
+            img.src = 'car_icon.jpg';
             
-          requestAnimationFrame(updateTime);
-            
-            function updateTime() {
-                  
-                if ( count % 100 == 0 )
-                    h1.innerHTML = count;
-                count--;
+            img.addEventListener("load", function() {
+                console.log('image loaded');
                 
-                if ( count >= 0) {
-                  requestAnimationFrame(updateTime);
-                }
-                
-            }    
+                 
+              }, false);
+              
             
             
-          
-          
-          var colors = ['red', 'green', 'blue', 'black'];
-          var colorcount = 0;
-          var colortimer =  setTimeout(updateColor, 1000);
-          function updateColor() {
-                  
+            
+            
+            var carX = 0;
+            function movecanvasCar(){
                
-                h1.style.color = colors[colorcount];
-                //style.background-color - incorrect CSS styles in JS are camelcase
-                //style.backgroundColor - correct
-                colorcount++;
+              ctx.clearRect(0,0,can.width,can.height);
+              ctx.drawImage(img,carX,0);
+                 var w = parseInt(can.width-100,10);
+                 if ( carX < w) {
+                     carX+=10;
+                 }
                 
-                if ( colorcount <= 3) {
-                  setTimeout(updateColor, 1000);
-                } else {
-                    clearTimeout(colortimer);
-                }
+            }
+            
+              setInterval(movecanvasCar, 50);
+                //ctx.strokeRect(50,50,50,50);
+              
+    
+    
                 
-            }    
+                
+                
+          
+                
             
-           
-            
-        </script>
-            
+            </script>
     </body>
 </html>
