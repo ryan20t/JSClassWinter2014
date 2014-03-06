@@ -8,71 +8,95 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
         <div id="time"></div>
+        
         
         <h1 id="counter"></h1>
         
         <script type="text/javascript">
             
+            /*
+             * 
+             *  setTimeout
+                    executes a function, once, after waiting a specified number of milliseconds
+                setInterval
+                    executes a function, over and over again, at specified time intervals
+                clearTimeout
+                    Used to stop the execution of setTimeout
+                clearInterval
+                    Used to stop the execution of setInterval
+                    These timers are part of the window object.
+
+             */
             
             
-            
-            //time and date that updates every second
+          /*
             var timeDiv = document.getElementById('time');
             
-            function updateTime(){
-                var time = new Date();
+            
+            function updateTime() {
+                  var time = new Date();
                 timeDiv.innerHTML = time;
             }
             
             var timer = setInterval(updateTime, 1000);
+    
+    */
+            /***************************/
             
             
+           window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
             
-            //countdown timer
-            /*
+    
+    
             var h1 = document.getElementById('counter');
-            var count = 10;
+            var count = 1000;
             
-            var counter = setTimeout(updateTime, 1000);
+            var time = new Date();
             
-            function updateTime(){
-
-                h1.innerHTML = count;
+          requestAnimationFrame(updateTime);
+            
+            function updateTime() {
+                  
+                if ( count % 100 == 0 )
+                    h1.innerHTML = count;
                 count--;
                 
-                if ( count < 0 ){
-                    clearTimeout(counter);
-                } else{
-                    counter = setTimeout(updateTime, 1000);
+                if ( count >= 0) {
+                  requestAnimationFrame(updateTime);
                 }
-            }
-            */
-           
-           var colors = ['red', 'green', 'blue', 'black'];
-           var colorcount = 0;
-           var colortime = setTimeout(updateColor, 1000);
-           
-           function updateColor(){
-               time.style.color = colors[colorcount];
-               colorcount++;
+                
+            }    
+            
+            
+          
+          
+          var colors = ['red', 'green', 'blue', 'black'];
+          var colorcount = 0;
+          var colortimer =  setTimeout(updateColor, 1000);
+          function updateColor() {
+                  
                
-               if ( colorcount <= 3){
-                   setTimeout(updateColor, 1000);
-               } else {
-                   clearTimeout(colortimer);
-               }
-               
-           }
-           
-           
-           
+                h1.style.color = colors[colorcount];
+                //style.background-color - incorrect CSS styles in JS are camelcase
+                //style.backgroundColor - correct
+                colorcount++;
+                
+                if ( colorcount <= 3) {
+                  setTimeout(updateColor, 1000);
+                } else {
+                    clearTimeout(colortimer);
+                }
+                
+            }    
+            
            
             
         </script>
-        
+            
     </body>
 </html>

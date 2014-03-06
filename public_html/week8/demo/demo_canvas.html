@@ -8,36 +8,95 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">canvas{border: 1px solid black;}</style>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
+        <div id="time"></div>
         
-        <canvas id="tutorial" width="250" height="150"></canvas>
+        
+        <h1 id="counter"></h1>
         
         <script type="text/javascript">
             
-            var can = document.getElementById('tutorial');
-            var ctx = can.getContext('2d');
+            /*
+             * 
+             *  setTimeout
+                    executes a function, once, after waiting a specified number of milliseconds
+                setInterval
+                    executes a function, over and over again, at specified time intervals
+                clearTimeout
+                    Used to stop the execution of setTimeout
+                clearInterval
+                    Used to stop the execution of setInterval
+                    These timers are part of the window object.
+
+             */
             
             
-            var x = 25;
-            var w = 50;
-        function movecanvas(){
-            w++;
-            x++;
-            ctx.fillRect(x,25,w,50);
-            //ctx.clearRect(45,45,60,60);
-            //ctx.strokeRect(50,50,50,50);
-            if ( x < can.width-100 ){
-                x++;
+          /*
+            var timeDiv = document.getElementById('time');
+            
+            
+            function updateTime() {
+                  var time = new Date();
+                timeDiv.innerHTML = time;
             }
-        }
-        
-        setInterval(movecanvas, 250);
-        
+            
+            var timer = setInterval(updateTime, 1000);
+    
+    */
+            /***************************/
+            
+            
+           window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            
+    
+    
+            var h1 = document.getElementById('counter');
+            var count = 1000;
+            
+            var time = new Date();
+            
+          requestAnimationFrame(updateTime);
+            
+            function updateTime() {
+                  
+                if ( count % 100 == 0 )
+                    h1.innerHTML = count;
+                count--;
+                
+                if ( count >= 0) {
+                  requestAnimationFrame(updateTime);
+                }
+                
+            }    
+            
+            
+          
+          
+          var colors = ['red', 'green', 'blue', 'black'];
+          var colorcount = 0;
+          var colortimer =  setTimeout(updateColor, 1000);
+          function updateColor() {
+                  
+               
+                h1.style.color = colors[colorcount];
+                //style.background-color - incorrect CSS styles in JS are camelcase
+                //style.backgroundColor - correct
+                colorcount++;
+                
+                if ( colorcount <= 3) {
+                  setTimeout(updateColor, 1000);
+                } else {
+                    clearTimeout(colortimer);
+                }
+                
+            }    
+            
+           
+            
         </script>
-        
-        
+            
     </body>
 </html>
