@@ -53,16 +53,24 @@ function collectMachineInfo(){
 window.addEventListener('load', collectMachineInfo);
 
 var data = {
-                "mousex" : []
+                "mousex" : [],
+                "mousey" : []
         };
 
 //Function to listen for up to 100 mouse moves
 function onMouseMove(e){
+        
+        if (data.mousex.length < 100) {
         data.mousex.push(e.clientX);
-        if ( data.mousex.length > 100 ) {
+    }
+        if (data.mousey.length < 100) {
+        data.mousey.push(e.clientY);
+    }
+        if ( data.mousex.length > 100 && data.mousey.length > 100) {
             document.removeEventListener('mousemove', onMouseMove);
             }
         }
+        
         
 //Event listener to call onMouseMove function
 document.addEventListener('mousemove', onMouseMove);
