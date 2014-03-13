@@ -37,3 +37,16 @@ a {
 a:hover {
         text-decoration: underline;
 }
+
+.error {
+    color: red;
+}
+
+.welcome {
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 10em;
+    width: 10em;
+    margin-top: 2em;
+    
+}
