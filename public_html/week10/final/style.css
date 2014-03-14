@@ -42,6 +42,16 @@ a:hover {
     color: red;
 }
 
+.docErrorSpan {
+    visibility: hidden;
+    color: red;
+}
+
+.scrollErrorSpan {
+    visibility: hidden;
+    color: red;
+}
+
 .welcome {
     border-radius: 5px;
     border: 2px solid black;
@@ -49,4 +59,15 @@ a:hover {
     width: 10em;
     margin-top: 2em;
     
+}
+
+.check {
+    height: 40px;
+    width: 40px;
+    visibility: hidden;
+}
+
+.submitAgreement {
+    bottom: 13px;
+    position: relative;
 }
